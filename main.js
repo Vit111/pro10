@@ -15,17 +15,17 @@ Vehicle.prototype.toString = function(){
 }
 
 Car.prototype = Object.create(Vehicle.prototype);
+Car.prototype.constructor = Car;
 Motorcycle.prototype = Object.create(Vehicle.prototype);
+Motorcycle.prototype.constructor = Motorcycle;
 
 function Car(model,year){
-    this.model = model
-    this.year = year
+    Vehicle.call(this,model,year)
     this.numWheels = 4
 }
 
 function Motorcycle(model,year){
-    this.model = model
-    this.year = year
+    Vehicle.call(this,model,year)
     this.numWheels = 2
 }
 
